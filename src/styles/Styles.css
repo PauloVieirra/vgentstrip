@@ -1,0 +1,272 @@
+
+.hero-content {
+  display: flex;
+  position: relative;
+  z-index: 2;
+  flex-direction: column;
+  align-items:flex-start;
+  justify-content: center;
+  width: auto;
+  height: 500px;
+  padding: 20px; /* Espaçamento interno */
+}
+
+.title {
+  color: rgb(255, 255, 255);
+  font-size: 60px;
+}
+
+.hero-description {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  max-width: 500px;
+  color: rgb(255, 255, 255);
+  
+}
+
+.destinations-scroll {
+  display: flex;
+  gap: 1.0rem;
+  position: relative;
+  z-index: 2;
+  overflow-x: auto;
+  width: 100%;
+  height: 230px;
+  min-height: 230px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 16px;
+  scroll-behavior: smooth;
+}
+
+.destinations-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.destination-card {
+  min-width: 200px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  scroll-snap-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.destination-card:hover {
+  transform: translateY(-5px);
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.destination-card.active {
+  background: rgba(255, 77, 77, 0.8);
+}
+
+.img-card {
+  object-fit:cover; /* A imagem se ajusta para caber no contêiner sem cortar */
+  width: 100%; /* Assegura que a imagem ocupe toda a largura do contêiner */
+  height: 100%; /* Faz a altura da imagem ser proporcional ao contêiner */
+}
+
+
+
+.destination-image {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  
+}
+
+.destination-card h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem;
+  margin: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  color: white;
+  font-size: 1.2rem;
+  z-index: 1;
+}
+
+.hero-section {
+  width: 100vw;
+  height: 100vh;
+  padding-top: 80px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  transition: background-image 0.5s ease;
+  position: relative; /* Importante para o posicionamento do pseudo-elemento */
+}
+
+.hero-section::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(60deg, rgba(0, 0, 0, 0.61) 0%, rgba(0, 0, 0, 0) 50%);
+  pointer-events: none; /* Para garantir que não bloqueie interações */
+}
+
+
+.tours-section{
+  padding-top: 100px;
+}
+
+.tours-section::before {
+  padding-top: 100px;
+  top: 0;
+  background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.9));
+}
+
+.inspire-section::before {
+  top: 0;
+  background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.9));
+}
+.tours-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.tours-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.inspire-section {
+  height: 100vh;
+  background-image: url('/images/inspire-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 0 4rem;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.inspire-content {
+  max-width: 800px;
+
+}
+
+.inspire-content h2 {
+  font-size: 4rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.container-line{
+  display: flex;
+  width: 100vw;
+  max-height: 60px;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.destination-card-content{
+  max-height: 260px;
+}
+
+
+@media (max-width: 768px) {
+  
+  .app {
+    min-height: 100vh;
+    color: white;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    width: 100vw;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .title {
+    color: rgb(255, 255, 255);
+    font-size: 42px;
+  }
+
+  .destinations-scroll {
+    display: flex;
+    gap: 1.0rem;
+    overflow-x: auto;
+    width: 100vw;
+    height: 100%;
+    max-height: 200px;
+    padding-left: 16px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    justify-content:flex-start;
+    width: auto;
+    padding: 2px 2px 2px 2px;
+    margin: 16px;
+    
+  }
+
+  .hero-description {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.6;
+    max-width: 500px;
+    color: rgb(255, 255, 255);
+    
+  }
+
+  .inspire-content h2 {
+    font-size: 3rem;
+  }
+
+  .tours-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .destination-card {
+    min-width: 150px;
+  }
+
+  .hero-section::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(60deg, rgb(0, 0, 0) 0%, rgba(0, 0, 0, 0) 100%);
+    pointer-events: none; /* Para garantir que não bloqueie interações */
+  }
+
+}
+
+
+
