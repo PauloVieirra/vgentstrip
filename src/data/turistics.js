@@ -1,8 +1,8 @@
 export const turisticPoints = [
     {
       "id": "cristo_redentor",
-      "imageCard": "https://upload.wikimedia.org/wikipedia/commons/6/6d/RiodeJaneiroChristoRedentor.jpg",
-      "image": "https://media.istockphoto.com/id/155388484/pt/foto/cristo-redentor.jpg",
+      "imageCard": "https://i.pinimg.com/736x/39/e4/71/39e4713615bcf9162284eac4c822b57c.jpg",
+      "image": "https://i.pinimg.com/736x/39/e4/71/39e4713615bcf9162284eac4c822b57c.jpg",
       "title": "Cristo Redentor",
       "city": "Rio de Janeiro",
       "country": "Brasil",
@@ -16,8 +16,8 @@ export const turisticPoints = [
     },
     {
       "id": "chapada_diamantina",
-      "imageCard": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Chapada_diamantina_national_park_02.jpg",
-      "image": "https://media.istockphoto.com/id/471743694/pt/foto/vale-do-pati.jpg",
+      "imageCard": "https://i.pinimg.com/736x/8f/9f/e2/8f9fe22e39dd68337c7e8e9ddbdb5ca0.jpg",
+      "image": "https://i.pinimg.com/736x/8f/9f/e2/8f9fe22e39dd68337c7e8e9ddbdb5ca0.jpg",
       "title": "Chapada Diamantina",
       "city": "Lençóis",
       "country": "Brasil",
@@ -27,7 +27,7 @@ export const turisticPoints = [
     {
       "id": "lençóis_maranhenses",
       "imageCard": "https://upload.wikimedia.org/wikipedia/commons/3/36/Len%C3%A7%C3%B3is_Maranhenses_2018.jpg",
-      "image": "https://media.istockphoto.com/id/969946128/pt/foto/len%C3%A7%C3%B3is-maranhenses-national-park.jpg",
+      "image": "https://i.pinimg.com/736x/17/9d/2c/179d2c2b5a0af11ae92445bd2797c979.jpg",
       "title": "Lençóis Maranhenses",
       "city": "Barreirinhas",
       "country": "Brasil",
@@ -37,7 +37,7 @@ export const turisticPoints = [
     {
       "id": "fernando_de_noronha",
       "imageCard": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Fernando_de_Noronha.jpg",
-      "image": "https://media.istockphoto.com/id/481927285/pt/foto/fernando-de-noronha.jpg",
+      "image": "https://i.pinimg.com/736x/db/4c/dd/db4cddc2892143979c78d537ea308277.jpg",
       "title": "Fernando de Noronha",
       "city": "Fernando de Noronha",
       "country": "Brasil",
@@ -47,7 +47,7 @@ export const turisticPoints = [
     {
       "id": "foz_do_iguaçu",
       "imageCard": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Iguazufalls.jpg",
-      "image": "https://media.istockphoto.com/id/157382540/pt/foto/iguazu-falls.jpg",
+      "image": "https://i.pinimg.com/736x/a4/ad/78/a4ad7886a7e83758ad0c1892ba1495bf.jpg",
       "title": "Foz do Iguaçu",
       "city": "Foz do Iguaçu",
       "country": "Brasil",

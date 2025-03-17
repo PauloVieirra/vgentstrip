@@ -24,3 +24,15 @@ export function ButtonMenus ({ children, variant = 'btnsMenu', onClick }) {
       </button>
    );
   }
+
+  export function ButtoBack ({ children, variant = 'voltartop', onClick }) {
+   return(
+      <button
+      className={`button ${variant}`}
+      onClick={onClick}
+      >
+           {children}
+        
+      </button>
+   );
+  }

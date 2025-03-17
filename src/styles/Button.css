@@ -91,6 +91,16 @@
 }
 
 
+button.voltartop{
+  position: absolute;
+  z-index: 100;
+  top: 90px;
+  left: 16px;
+  background-color: #0000002c;
+  color: #ffffff;
+}
+
+
 
 @media (max-width: 768px){
 

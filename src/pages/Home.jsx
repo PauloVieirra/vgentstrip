@@ -6,57 +6,66 @@ import { ButtonDetails } from '../components/Btns';
 import Card from '../components/Card';
 import { useDestination } from '../context/DestinationContext';
 import { destinations } from '../data/destinations';
-import { tours } from '../data/tours';
+import { flights } from '../data/aereas';
 import '../styles/Styles.css';
-
 
 const Home = () => {
   const navigate = useNavigate();
   const [selectedDestination, setSelectedDestination] = useState(destinations[0]);
+  const [isLoading, setIsLoading] = useState(false);
   const { updateDestination } = useDestination();
+
+  const handleDestinationChange = (destination) => {
+    setIsLoading(true);
+    setSelectedDestination(destination);
+
+    const img = new Image();
+    img.src = destination.image;
+    img.onload = () => {
+      setIsLoading(false);
+    };
+  };
 
   return (
     <div className='App'>
-        <Navbar />
+      <Navbar />
       <section className="hero-section" id="home" style={{ backgroundImage: `url(${selectedDestination.image})` }}>
-       
+        {isLoading && (
+          <div className="loading-overlay">
+            <div className="loading-spinner"></div>
+          </div>
+        )}
         <div className="hero-content">
           <h1 className='title'>{selectedDestination.title}</h1>
           <p className="hero-description">{selectedDestination.description}</p>
-        
           <Button variant="deteils" onClick={() => {
-              updateDestination({ id: selectedDestination.id });
-              navigate(`/destination/${selectedDestination.id}`);
-        }}>Conhecer →</Button>
+            updateDestination({ id: selectedDestination.id });
+            navigate(`/destination/${selectedDestination.id}`);
+          }}>Conhecer →</Button>
         </div>
-
-        
 
         <div className="destinations-scroll">
           {destinations.map((destination, index) => (
             <div 
               key={index} 
               className={`destination-card ${selectedDestination === destination ? 'active' : ''}`}
-              onClick={() => setSelectedDestination(destination)}
+              onClick={() => handleDestinationChange(destination)}
               onMouseEnter={(e) => {
                 const card = e.currentTarget;
                 const container = card.parentElement;
                 const cardRect = card.getBoundingClientRect();
                 const containerRect = container.getBoundingClientRect();
                 const mouseX = e.clientX - containerRect.left;
-                const edgeThreshold = 100; // Pixels from edge to trigger scroll
+                const edgeThreshold = 100;
                 const maxScroll = container.scrollWidth - container.clientWidth;
                 
                 if (mouseX < edgeThreshold) {
-                  // Near left edge - scroll left
                   const scrollAmount = Math.max(0, container.scrollLeft - container.clientWidth);
                   container.scrollTo({ left: scrollAmount, behavior: 'smooth' });
                 } else if (mouseX > containerRect.width - edgeThreshold) {
-                  // Near right edge - scroll right
                   const scrollAmount = Math.min(maxScroll, container.scrollLeft + container.clientWidth);
                   container.scrollTo({ left: scrollAmount, behavior: 'smooth' });
                 } else {
-                  // Center the hovered card
                   const containerPadding = 16;
                   const scrollLeft = container.scrollLeft + (cardRect.left - containerRect.left - containerPadding) - (containerRect.width / 1.4) + (cardRect.width / 1.4);
                   if (scrollLeft >= 0 && scrollLeft <= maxScroll) {
@@ -75,7 +84,7 @@ const Home = () => {
           ))}
         </div>
 
-         <div className="container-line">
+        <div className="container-line">
           <ButtonDetails variant="section"
             onClick={() => {
               document.getElementById('tours').scrollIntoView({ behavior: 'smooth' });
@@ -84,21 +93,18 @@ const Home = () => {
           ↓
           </ButtonDetails>
         </div>
-       
       </section>
 
-     
-     
-
       <section className="tours-section" id="tours">
-        <h2>Nossos Tours</h2>
+        <h2>Nossos Voos</h2>
         <div className="tours-grid">
-          {tours.map((tour, index) => (
+          {flights.map((flight, index) => (
             <Card
               key={index}
-              image={tour.image}
-              title={tour.title}
-              description={tour.description}
+              image={flight.image}
+              title={flight.title}
+              description={`${flight.airline} - ${flight.duration} - R$${flight.price}`}
+              textBtn="Check In"
             />
           ))}
         </div>
@@ -112,7 +118,6 @@ const Home = () => {
           </Button>
         </div>
       </section>
-      
     </div>
   );
 };

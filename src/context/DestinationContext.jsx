@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const DestinationContext = createContext();
 
@@ -11,7 +11,18 @@ export const useDestination = () => {
 };
 
 export const DestinationProvider = ({ children }) => {
-  const [selectedDestination, setSelectedDestination] = useState(null);
+  const [selectedDestination, setSelectedDestination] = useState(() => {
+    const savedDestination = localStorage.getItem('selectedDestination');
+    return savedDestination ? JSON.parse(savedDestination) : null;
+  });
+
+  useEffect(() => {
+    if (selectedDestination) {
+      localStorage.setItem('selectedDestination', JSON.stringify(selectedDestination));
+    } else {
+      localStorage.removeItem('selectedDestination');
+    }
+  }, [selectedDestination]);
 
   const clearDestination = () => {
     setSelectedDestination(null);

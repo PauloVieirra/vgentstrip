@@ -62,7 +62,7 @@
 }
 
 .destination-card.active {
-  background: rgba(255, 77, 77, 0.8);
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .img-card {
@@ -126,13 +126,31 @@
 
 
 .tours-section{
-  padding-top: 100px;
+  position: relative;
+  padding: 4rem 0;
+  background-image: url('https://wallpapers.com/images/hd/clouds-4k-tu2l0is8o2uo74o5.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
 }
 
 .tours-section::before {
-  padding-top: 100px;
+  content: '';
+  position: absolute;
   top: 0;
-  background: linear-gradient(to top, transparent, rgba(0, 0, 0, 0.9));
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.tours-section h2,
+.tours-grid {
+  position: relative;
+  z-index: 2;
+  padding: 16px;
 }
 
 .inspire-section::before {
@@ -145,17 +163,10 @@
   margin-bottom: 3rem;
 }
 
-.tours-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
+
 
 .inspire-section {
   height: 100vh;
-  background-image: url('/images/inspire-bg.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -163,6 +174,8 @@
   padding: 0 4rem;
   box-sizing: border-box;
   width: 100%;
+
+  background-color: aliceblue;
 }
 
 .inspire-content {
@@ -246,9 +259,7 @@
     font-size: 3rem;
   }
 
-  .tours-grid {
-    grid-template-columns: 1fr;
-  }
+  
 
   .destination-card {
     min-width: 150px;

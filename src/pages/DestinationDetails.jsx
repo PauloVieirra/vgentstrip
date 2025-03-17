@@ -2,9 +2,11 @@ import React from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Button from '../components/Button';
+import Hotels from '../components/Hotels';
 import { useDestination } from '../context/DestinationContext';
 import { destinations } from '../data/destinations';
 import { turisticPoints } from '../data/turistics';
+import { Hotels as HotelsData } from '../data/hotels';
 import '../styles/DestinationDetails.css';
 
 const DestinationDetails = () => {
@@ -21,19 +23,20 @@ const DestinationDetails = () => {
   return (
     <div className="destination-details">
       <Navbar />
+       <Button 
+          variant="voltartop" 
+          onClick={() => navigate(-1)}
+          className="back-button"
+        >
+          ← Voltar
+        </Button>
       <div className="hero-banner" style={{ backgroundImage: `url(${destination.image})` }}>
         <div className="overlay"></div>
         <h1>{destination.title}</h1>
       </div>
       
       <div className="details-content">
-        <Button 
-          variant="secondary" 
-          onClick={() => navigate(-1)}
-          className="back-button"
-        >
-          ← Voltar
-        </Button>
+       
 
         <div className="main-info">
           <p className="description">{destination.fullDescription}</p>
@@ -54,6 +57,26 @@ const DestinationDetails = () => {
             <div className="detail-item">
               <h3>Custo médio diário</h3>
               <p>{destination.averageExpense}</p>
+            </div>
+          </div>
+
+          <div className="cta-section">
+            <h2>Hotéis Disponíveis</h2>
+            <div className="hotels-list">
+              {HotelsData.filter(hotel => 
+                hotel.country === destination.country && 
+                hotel.cidade === destination.title
+              ).map((hotel, index) => (
+                <Hotels
+                  key={index}
+                  image={hotel.imageCover}
+                  name={hotel.titulo}
+                  description={hotel.descricao}
+                  price={hotel.preco}
+                  rating={4}
+                  amenities={[]}
+                />
+              ))}
             </div>
           </div>
 
@@ -117,10 +140,7 @@ const DestinationDetails = () => {
             </div>
           </div>
 
-          <div className="cta-section">
-            <h2>Pronto para começar sua aventura?</h2>
-            <Button variant="primary">Reservar agora</Button>
-          </div>
+          
         </div>
         {turisticPoints?.some(point => point.country === destination.country) && (
           <div className="tourist-attractions">

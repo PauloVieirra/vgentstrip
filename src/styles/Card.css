@@ -33,8 +33,22 @@
   line-height: 1.6;
 }
 
+
+/*Card Horizontal*/
+.card-horizontal{
+   display: flex;
+   flex-direction: row;
+}
+
 @media (max-width: 768px) {
+
   .card {
     margin-bottom: 1rem;
   }
+
+  .card-horizontal{
+    display: flex;
+    flex-direction: column;
+ }
+
 }
